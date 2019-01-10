@@ -7,6 +7,7 @@ const Usuario = require('../models/usuario');
 const { verificaToken, verificaAdminRole } = require('../middlewares/auntenticacion');
 
 
+
 const app = express();
 
 app.get('/usuario', verificaToken, (req, res) => {
@@ -34,11 +35,8 @@ app.get('/usuario', verificaToken, (req, res) => {
                     usuarios,
                     cuantos: conteo
                 });
-
             });
-
         })
-
 });
 
 app.post('/usuario', [verificaToken, verificaAdminRole], (req, res) => {
